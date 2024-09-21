@@ -55,10 +55,10 @@
 
 #TASK NUMBER 4 --> cleaning features name which contain .
 	names(readydataset) <- gsub('\\.','',names(readydataset))
-	write.csv(readydataset,"readydataset.csv",row.names = FALSE)
+	write.csv(readydataset,"1st_task_readydataset.csv",row.names = FALSE)
 
 #TASK NUMBER 4 --> summarize based on activity and subject by mean
 #change activity and subject_id variable class to factor, these columns located in column index 1&3
 	readydataset[c(1,3)] <- lapply(readydataset[c(1,3)], factor)
 	summarytidydata <- readydataset|> select(!dataset) |> group_by(activity,subject_id) |> summarize_all(mean,na.rm = TRUE)
-	write.csv(summarytidydata,"summarytidydata.csv",row.names = FALSE)
+	write.csv(summarytidydata,"2nd_task_summarytidydata.csv",row.names = FALSE)
